@@ -1,23 +1,56 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React from 'react';
+import { useState,useRef } from 'react';
+import {Todo} from './Todo'
 
 function App() {
+
+  const [todoList,setTodoList]=useState([])
+  const inputRef=useRef(null)
+
+
+  const handleInput =()=>{
+    if(inputRef.current.value!==""){
+
+      inputRef.current.focus()
+      let task={
+        id:todoList.length===0?0:todoList[todoList.length-1].id+1,
+        task:inputRef.current.value,
+        isComplete:false
+      }
+      setTodoList([...todoList,task])
+      inputRef.current.value=""
+    }
+  }
+
+  const removeTask =(id)=>{
+    setTodoList(todoList.filter((task)=>{return task.id!==id}))  
+  }
+
+  const changeStatus =(id)=>{
+    setTodoList(
+      todoList.map((todo)=>{
+        if(todo.id===id){
+          if(todo.isComplete===true){
+             return {...todo,isComplete:false}
+          }else{
+            return {...todo,isComplete:true}
+          }
+        }else{
+          return todo
+        }
+      })
+    )
+  }
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div><h1 style={{color:"red"}}>TODO APP</h1></div>
+      <Todo inputRef={inputRef} handleInput={handleInput} todoList={todoList} changeStatus={changeStatus} removeTask={removeTask}/>
     </div>
   );
 }

@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+body{
+  background-color: black;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.main{
+  background-color: rgb(232, 232, 226);
+  border: 3px solid rgb(176, 173, 173);
+  border-radius: 10px;
+  width: 400px;
+  margin: 10px;
+  height: auto;
+}
+.add-todo{
+  
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding:8px 8px 0px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.add-todo>input{
+  color: rgb(14, 1, 1);
+  height: 40px;
+  width: 250px;
+  padding-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  
+  
+ 
+}
+.add-todo>button{
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  margin-left: 10px;
+ padding: 10px 20px;
+ background-color: rgb(0, 6, 0);
+ border: none;
+ border-radius: 0px 32px 6px 0px;
+
+
+}
+
+.todos{
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(254, 255, 254);
+  height: 45px;
+  width:340px;
+  justify-content: space-between;
+  border: 3px solid black;
+  border-radius:0px 0px 0px 30px;
+  margin-bottom: 9px;
+  margin-left: 15px;
   color: white;
+    
+  
+}
+.todos>input{
+  margin-left: 20px;
+  width: 15px;
+}
+.todos>button{
+  background: none;
+  border: none;
+  color: red;
+  font-weight: bold;
+  font-size: 30px;
+  padding-right: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.display-todo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column ;
+  width: 100%;
+  margin-top: 10px;
+  height: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-not{
+
+  color: black;
+}
+
+.todo-completed{
+  text-decoration: line-through;
+  color: black;
+  margin-right: 10px;
+
 }
